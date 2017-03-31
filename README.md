@@ -1,2 +1,2 @@
-# skiena-algorithm-design-manual
-solutions of tasks from interviews implemented in Java
+# checkio-org
+CheckiO.org solutions in Python
