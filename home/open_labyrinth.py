@@ -14,7 +14,7 @@ def findpath(maze_map, start):
             visited.add(vertex)
             if vertex[0] == 10 and vertex[1] == 10:
                 return "".join(path)
-            for move in MOVE.keys():
+            for move in MOVE:
                 new_move = get_new_move(MOVE.get(move), vertex)
                 if move_in_range(new_move) and not in_pit(maze_map, new_move):
                     new_path = path[:]
