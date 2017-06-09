@@ -17,7 +17,11 @@ def checkio(opacity):
 
 def fib(n):
     if n == 0 or n == 1: return n
-    return fib(n - 1) + fib(n - 2)
+
+    a, b = 0, 1
+    while b < n:
+        a, b = b, a + b
+    return b
 
 def is_fib_numb(test_numb):
     fib_numb_counter = 0
