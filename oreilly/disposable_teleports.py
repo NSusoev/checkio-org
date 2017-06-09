@@ -12,13 +12,19 @@ def hamilton_path(current_station, path, connections):
         return path
 
     moves = available_moves(current_station, connections)
+    print("AVAILABLE = {}".format(moves))
     for i in range(len(moves)):
-        move = moves.pop(i)
-        connections.remove(move)
+        move = None
+        if (move_destination(current_station, moves[0]) == 0 and
+            len(moves) == 1) or move_destination(current_station, moves[0]) != 0:
+            move = moves.pop(0)
+            connections.remove(move)
+        elif move_destination(current_station, moves[0]) == 0 and len(moves) > 1:
+            move = moves.pop(1)
+            connections.remove(move)
+
         if hamilton_path(move_destination(current_station, move), path, connections):
             return path
-
-    return path
 
 def available_moves(current_station, connections):
     return [move for move in connections if current_station in move]
