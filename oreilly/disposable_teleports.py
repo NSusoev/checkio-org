@@ -8,11 +8,10 @@ def checkio(teleports_str):
 
 def hamilton_path(current_station, path, connections):
     path.append(current_station)
-    if len(connections) == 0:
+    if len(set(path)) == 8 and current_station == 0:
         return path
 
     moves = available_moves(current_station, connections)
-    print("AVAILABLE = {}".format(moves))
     for i in range(len(moves)):
         move = None
         if (move_destination(current_station, moves[0]) == 0 and
